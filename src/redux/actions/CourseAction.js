@@ -139,20 +139,23 @@ const mapCourseDetail = payload => {
   };
 };
 
-export const fetchCourse = courseId => async dispatch => {
+export const fetchCourse = (courseId, navigation) => async dispatch => {
   dispatch({
     type: SET_LOADING,
     payload: true,
   });
-
-  const {response} = await CourseService.getCourseByCourseId(courseId);
-  const mappedCourse = mapCourseDetail(response);
-  console.log('fetched course detail');
-
-  dispatch({
-    type: SET_COURSE,
-    payload: mappedCourse,
-  });
+  try {
+    const {response} = await CourseService.getCourseByCourseId(courseId);
+    const mappedCourse = mapCourseDetail(response);
+    console.log('fetched course detail');
+    navigation.navigate('CourseDetail');
+    dispatch({
+      type: SET_COURSE,
+      payload: mappedCourse,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   dispatch({
     type: SET_LOADING,
@@ -160,54 +163,33 @@ export const fetchCourse = courseId => async dispatch => {
   });
 };
 
-export const fetchLectureInfo =
-  ({courseId, lectureId}) =>
-  async dispatch => {
-    try {
-      dispatch({
-        type: SET_LOADING,
-        payload: true,
+export const fetchLectureInfo = async (courseId, lectureId) => {
+  try {
+    // dispatch({
+    //   type: SET_LOADING,
+    //   payload: true,
+    // });
+    console.log('fetched course lecture');
+
+    const {lectureInfo} =
+      await CourseService.getLectureInfoByCourseIdAndLectureId({
+        courseId,
+        lectureId,
       });
 
-      const {lectureInfo} =
-        await CourseService.getLectureInfoByCourseIdAndLectureId({
-          courseId,
-          lectureId,
-        });
+    return mapCurrentLecture(lectureInfo);
+  } catch (error) {
+    console.log(`[warning]: ${error.message}`);
+  }
+};
 
-      console.log('fetched course lecture');
-
-      dispatch({
-        type: SET_CURRENT_LECTURE,
-        payload: await mapCurrentLecture(lectureInfo),
-      });
-    } catch (error) {
-      console.log(`[warning]: ${error.message}`);
-    } finally {
-      dispatch({
-        type: SET_LOADING,
-        payload: false,
-      });
-    }
-  };
-
-export const fetchCourses = userId => async dispatch => {
-  dispatch({
-    type: SET_LOADING,
-    payload: true,
-  });
-
-  const {studyingCourse} = await CourseService.getCoursesByMemberId(userId);
-  const mappedCourses = studyingCourse.map(each => mapCourse(each));
-  console.log('fetched courses');
-
-  dispatch({
-    type: SET_COURSES,
-    payload: mappedCourses,
-  });
-
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
+export const fetchCourses = async userId => {
+  try {
+    const {studyingCourse} = await CourseService.getCoursesByMemberId(userId);
+    const mappedCourses = studyingCourse.map(each => mapCourse(each));
+    console.log('fetched courses');
+    return mappedCourses;
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import padStart from 'lodash/padStart';
 import {COLORS, FONTS} from '../../constants';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Button, Menu} from 'react-native-paper';
 
 export default class VideoPlayer extends Component {
   static defaultProps = {
@@ -70,6 +70,7 @@ export default class VideoPlayer extends Component {
       currentTime: 0,
       error: false,
       duration: 0,
+      speedControl: false,
     };
 
     /**
@@ -1058,38 +1059,51 @@ export default class VideoPlayer extends Component {
             style={[styles.controls.row, styles.controls.bottomControlGroup]}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               {playPauseControl}
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({...this.state, rate: 1});
+              <View style={{flex: 1}} />
+              <Menu
+                visible={this.state.speedControl}
+                onDismiss={() => {
+                  this.setState({speedControl: false});
                 }}
-                style={{marginRight: 20}}>
-                <Text style={{color: COLORS.white, ...FONTS.body4}}>1x</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({...this.state, rate: 1.25});
-                }}
-                style={{marginRight: 20}}>
-                <Text style={{color: COLORS.white, ...FONTS.body4}}>1.25x</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({...this.state, rate: 1.5});
-                }}
-                style={{marginRight: 20}}>
-                <Text style={{color: COLORS.white, ...FONTS.body4}}>1.5x</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({...this.state, rate: 2});
-                }}
-                style={{marginRight: 20}}>
-                <Text style={{color: COLORS.white, ...FONTS.body4}}>2x</Text>
-              </TouchableOpacity>
+                anchor={
+                  <Button
+                    onPress={() => {
+                      this.setState({speedControl: true});
+                    }}
+                    style={{color: COLORS.white}}
+                    color={COLORS.white}
+                    labelStyle={FONTS.body5}>
+                    Speed
+                  </Button>
+                }>
+                <Menu.Item
+                  onPress={() => {
+                    this.setState({...this.state, rate: 1});
+                  }}
+                  title="1x"
+                />
+                <Menu.Item
+                  onPress={() => {
+                    this.setState({...this.state, rate: 1.25});
+                  }}
+                  title="1.25x"
+                />
+                <Menu.Item
+                  onPress={() => {
+                    this.setState({...this.state, rate: 1.5});
+                  }}
+                  title="1.5x"
+                />
+                <Menu.Item
+                  onPress={() => {
+                    this.setState({...this.state, rate: 2});
+                  }}
+                  title="2x"
+                />
+              </Menu>
+              {this.renderTitle()}
+              {timerControl}
             </View>
-
-            {this.renderTitle()}
-            {timerControl}
           </SafeAreaView>
         </ImageBackground>
       </Animated.View>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {COLORS, FONTS} from '../../constants';
 import LocalizationContext from '../LocalizationContext';
@@ -6,62 +6,73 @@ import SmallCourseCard from '../../components/card/SmallCourseCard';
 import LargeCourseCard from '../../components/card/LargeCourseCard';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCourse, fetchCourses} from '../../redux/actions/CourseAction';
+import {ActivityIndicator} from 'react-native';
 
 const NormalCourseScreen = ({navigation}) => {
   const {t} = React.useContext(LocalizationContext);
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  const courses = useSelector(state => state.course.courses);
-  // const [currentCourse, setCurrentCourse] = useState({id: -1});
+  const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState([]);
 
   const fetchCourseAndNavigate = courseId => {
-    dispatch(fetchCourse(courseId));
+    dispatch(fetchCourse(courseId, navigation));
+  };
 
-    navigation.navigate('CourseDetail');
+  const onFetchCourse = async () => {
+    setLoading(true);
+    const res = await fetchCourses(user.id);
+    setCourses(res);
+    setLoading(false);
   };
 
   useEffect(() => {
-    dispatch(fetchCourses(user.id));
-  }, [dispatch, user.id]);
+    onFetchCourse();
+  }, [user.id]);
 
   return (
     <View style={Styles.container}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={Styles.flatlistContainer}
-        ItemSeparatorComponent={() => {
-          return <View style={Styles.flatlistItems} />;
-        }}
-        ListHeaderComponent={() => {
-          return (
-            <>
-              <View style={Styles.listViewItemsNew}>
-                <Text style={[FONTS.h2, {color: COLORS.thirdary}]}>
-                  {t('normalcourse.newcourse')}
-                </Text>
-              </View>
-              {/* <LargeCourseCard
+      {loading ? (
+        <ActivityIndicator color={COLORS.primary} size={30} />
+      ) : (
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={Styles.flatlistContainer}
+          keyExtractor={(item, index) => `${item.id}+${index}`}
+          ItemSeparatorComponent={() => {
+            return <View style={Styles.flatlistItems} />;
+          }}
+          ListHeaderComponent={() => {
+            return (
+              <>
+                <View style={Styles.listViewItemsNew}>
+                  <Text style={[FONTS.h2, {color: COLORS.thirdary}]}>
+                    {t('normalcourse.newcourse')}
+                  </Text>
+                </View>
+                {/* <LargeCourseCard
                 item={currentCourse}
                 onPress={() => fetchCourseAndNavigate(currentCourse.id)}
               /> */}
-              <View style={Styles.listViewItemsOther}>
-                <Text style={[FONTS.h2, {color: COLORS.thirdary}]}>
-                  {t('normalcourse.othercourse')}
-                </Text>
-              </View>
-            </>
-          );
-        }}
-        data={courses}
-        renderItem={({item}) => {
-          return (
-            <SmallCourseCard
-              item={item}
-              onPress={() => fetchCourseAndNavigate(item.id)}
-            />
-          );
-        }}
-      />
+                <View style={Styles.listViewItemsOther}>
+                  <Text style={[FONTS.h2, {color: COLORS.thirdary}]}>
+                    {t('normalcourse.othercourse')}
+                  </Text>
+                </View>
+              </>
+            );
+          }}
+          data={courses}
+          renderItem={({item}) => {
+            return (
+              <SmallCourseCard
+                item={item}
+                onPress={() => fetchCourseAndNavigate(item.id)}
+              />
+            );
+          }}
+        />
+      )}
     </View>
   );
 };
@@ -70,6 +81,8 @@ const Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.backgroundColor,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   flatlistContainer: {
     padding: 20,

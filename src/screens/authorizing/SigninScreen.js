@@ -97,15 +97,43 @@ const SigninScreen = () => {
         }),
       );
     } else {
-      const response = await AuthService.login({
-        // email: data.username,
-        // password: data.password,
-        email: 'mickey.csq@gmail.com',
-        password: 'abc1234*',
-        memberProfileComId: 3, // TODO: MANY OWNER
-      });
+      try {
+        const response = await AuthService.login({
+          // email: data.username,
+          // password: data.password,
+          email: 'mickey.csq@gmail.com',
+          password: 'abc1234*',
+          memberProfileComId: 3, // TODO: MANY OWNER
+        });
 
-      if (response === 'Member not found') {
+        if (response === 'Member not found') {
+          dispatch(
+            setSnackbarDisplay({
+              state: 'error',
+              message: t('signin.membernotfound'),
+            }),
+          );
+        } else if (response?.token) {
+          await setAuthToken(response.token);
+          const _user = await MemberService.getMemberInfo();
+          const user = {
+            id: _user.mId,
+            image: `https://s1-dev.coursesquare.com/${_user.mDisplayPath}`, // TODO: waiting for image storage path
+            firstName: _user.mFirstName,
+            lastName: _user.mLastName,
+            email: _user.mEmail,
+          };
+
+          dispatch(signIn(user));
+          dispatch(
+            setSnackbarDisplay({
+              state: 'succeeded',
+              message: t('signin.succeeded'),
+            }),
+          );
+        }
+      } catch (error) {
+        console.log(error);
         dispatch(
           setSnackbarDisplay({
             state: 'error',
@@ -113,27 +141,7 @@ const SigninScreen = () => {
           }),
         );
       }
-
-      if (response?.token) {
-        await setAuthToken(response.token);
-        const _user = await MemberService.getMemberInfo();
-        const user = {
-          id: _user.mId,
-          image: `https://s1-dev.coursesquare.com/${_user.mDisplayPath}`, // TODO: waiting for image storage path
-          firstName: _user.mFirstName,
-          lastName: _user.mLastName,
-          email: _user.mEmail,
-        };
-
-        dispatch(signIn(user));
-        dispatch(
-          setSnackbarDisplay({
-            state: 'succeeded',
-            message: t('signin.succeeded'),
-          }),
-        );
-        dispatch(setLoading(false));
-      }
+      dispatch(setLoading(false));
     }
   };
 
