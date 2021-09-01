@@ -144,23 +144,28 @@ export const fetchCourse = (courseId, navigation) => async dispatch => {
     type: SET_LOADING,
     payload: true,
   });
+  console.log('fetched course detail');
+
   try {
     const {response} = await CourseService.getCourseByCourseId(courseId);
     const mappedCourse = mapCourseDetail(response);
-    console.log('fetched course detail');
-    navigation.navigate('CourseDetail');
+
     dispatch({
       type: SET_COURSE,
       payload: mappedCourse,
     });
+    dispatch({
+      type: SET_LOADING,
+      payload: false,
+    });
+    navigation.navigate('CourseDetail');
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: SET_LOADING,
+      payload: false,
+    });
   }
-
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
 };
 
 export const fetchLectureInfo = async (courseId, lectureId) => {

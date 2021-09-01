@@ -12,6 +12,7 @@ import {setFullscreen} from '../../redux/actions/AppStateAction';
 import useOrientation from '../../useHook/useOrientation';
 import {fetchLectureInfo} from '../../redux/actions/CourseAction';
 import {ActivityIndicator} from 'react-native';
+import {getVideoTime, onVideoProgress} from '../../util/videoUtil';
 
 const CoursePlayerScreen = ({navigation, route}) => {
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,7 @@ const CoursePlayerScreen = ({navigation, route}) => {
     videoPath: '',
     videoThumbnailPath: '',
   });
+
   const fullscreen = useSelector(state => state.appState.fullscreen);
   const dispatch = useDispatch();
   const {height} = useOrientation();
@@ -58,7 +60,6 @@ const CoursePlayerScreen = ({navigation, route}) => {
     setLoading(true);
     try {
       const res = await fetchLectureInfo(course.id, item.lecId);
-      console.log(res);
       setData(res);
     } catch (error) {
       console.log(error);
@@ -79,6 +80,11 @@ const CoursePlayerScreen = ({navigation, route}) => {
       Orientation.removeOrientationListener(handleOrientation);
     };
   }, []);
+
+  const seekTime = async videoId => {
+    const t = await getVideoTime(videoId);
+    videoRef.current.player.ref.seek(t);
+  };
 
   useEffect(() => {
     const backAction = () => {
@@ -119,7 +125,7 @@ const CoursePlayerScreen = ({navigation, route}) => {
             alignItems: 'center',
           }}>
           {loading ? (
-            <ActivityIndicator size={30} color={COLORS.white} />
+            <ActivityIndicator color={COLORS.white} size={30} />
           ) : (
             <VideoPlayer
               ref={videoRef}
@@ -136,6 +142,12 @@ const CoursePlayerScreen = ({navigation, route}) => {
               onEnterFullscreen={handleEnterFullscreen}
               onExitFullscreen={handleExitFullScreen}
               toggleResizeModeOnFullscreen={false}
+              onProgress={async ({currentTime}) => {
+                await onVideoProgress(currentTime, data.id);
+              }}
+              onLoad={() => {
+                seekTime(data.id);
+              }}
             />
           )}
         </View>
