@@ -1,0 +1,14 @@
+com/coursesquare/ReactNativeFlipper.java
+ com.coursesquare.ReactNativeFlipper
+ com.coursesquare.ReactNativeFlipper$1
+ com.coursesquare.ReactNativeFlipper$2
+ com.coursesquare.ReactNativeFlipper$2$1
+com/coursesquare/MainApplication.java
+ com.coursesquare.MainApplication
+ com.coursesquare.MainApplication$1
+com/coursesquare/BuildConfig.java
+ com.coursesquare.BuildConfig
+com/coursesquare/MainActivity.java
+ com.coursesquare.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
