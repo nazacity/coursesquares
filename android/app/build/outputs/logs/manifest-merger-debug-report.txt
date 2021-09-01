@@ -20,6 +20,7 @@ MERGED from [:react-native-splash-screen] D:\project\coursesquare\app\Coursesqua
 MERGED from [:react-native-svg] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-video] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-youtube] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-youtube\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.android:facebook-android-sdk:9.0.0] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\98c8d7593391475550f3d7ac5e33a54c\jetified-facebook-android-sdk-9.0.0\AndroidManifest.xml:21:1-31:12
 MERGED from [com.facebook.android:facebook-login:9.0.0] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\d210aaed85f81df755df78c6ccef272b\jetified-facebook-login-9.0.0\AndroidManifest.xml:21:1-31:12
@@ -240,6 +241,8 @@ MERGED from [:react-native-vector-icons] D:\project\coursesquare\app\Coursesquar
 MERGED from [:react-native-vector-icons] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-video] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-video] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-youtube] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-youtube\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-youtube] D:\project\coursesquare\app\Coursesquare\node_modules\react-native-youtube\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\f48ad73390f9d41c4966ce25bccc3bb7\jetified-react-native-0.64.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.android:facebook-android-sdk:9.0.0] C:\Users\warod\.gradle\caches\transforms-2\files-2.1\98c8d7593391475550f3d7ac5e33a54c\jetified-facebook-android-sdk-9.0.0\AndroidManifest.xml:24:5-26:41

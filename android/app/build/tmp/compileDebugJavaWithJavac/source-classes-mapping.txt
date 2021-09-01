@@ -8,7 +8,7 @@ com/coursesquare/MainApplication.java
  com.coursesquare.MainApplication$1
 com/coursesquare/BuildConfig.java
  com.coursesquare.BuildConfig
-com/coursesquare/MainActivity.java
- com.coursesquare.MainActivity
 com/facebook/react/PackageList.java
  com.facebook.react.PackageList
+com/coursesquare/MainActivity.java
+ com.coursesquare.MainActivity
