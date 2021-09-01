@@ -37,6 +37,8 @@ import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-video
 import com.brentvatne.react.ReactVideoPackage;
+// react-native-youtube
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 
 public class PackageList {
   private Application application;
@@ -94,7 +96,8 @@ public class PackageList {
       new SplashScreenReactPackage(),
       new SvgPackage(),
       new VectorIconsPackage(),
-      new ReactVideoPackage()
+      new ReactVideoPackage(),
+      new ReactNativeYouTube()
     ));
   }
 }

@@ -6,15 +6,18 @@ import {COLORS, FONTS, SIZES, SHADOW} from '../../constants';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
 import VideoPlayer from '../../components/videoplayer/VideoPlayer';
+import YoutubeVideoPlayer from 'react-native-youtube';
 import Orientation from 'react-native-orientation-locker';
 import {setFullscreen} from '../../redux/actions/AppStateAction';
 // import Youtube from 'react-native-youtube';
 import useOrientation from '../../useHook/useOrientation';
 import {fetchLectureInfo} from '../../redux/actions/CourseAction';
 import {ActivityIndicator} from 'react-native';
+import {getVideoTime, onVideoProgress} from '../../util/videoUtil';
 
 const CoursePlayerScreen = ({navigation, route}) => {
   const [loading, setLoading] = useState(true);
+  const [youtube, setYoutube] = useState(null);
   const course = useSelector(state => state.course.course);
   const [data, setData] = useState({
     cId: 0,
@@ -35,6 +38,7 @@ const CoursePlayerScreen = ({navigation, route}) => {
     videoPath: '',
     videoThumbnailPath: '',
   });
+
   const fullscreen = useSelector(state => state.appState.fullscreen);
   const dispatch = useDispatch();
   const {height} = useOrientation();
@@ -58,7 +62,13 @@ const CoursePlayerScreen = ({navigation, route}) => {
     setLoading(true);
     try {
       const res = await fetchLectureInfo(course.id, item.lecId);
-      console.log(res);
+      if (res.videoPath.includes('youtube')) {
+        const youtubeId = res.videoPath.replace(
+          'https://www.youtube.com/watch?v=',
+          '',
+        );
+        setYoutube(youtubeId);
+      }
       setData(res);
     } catch (error) {
       console.log(error);
@@ -66,6 +76,7 @@ const CoursePlayerScreen = ({navigation, route}) => {
     setLoading(false);
   };
 
+  console.log(youtube);
   useEffect(() => {
     onFetchLecture();
   }, []);
@@ -79,6 +90,11 @@ const CoursePlayerScreen = ({navigation, route}) => {
       Orientation.removeOrientationListener(handleOrientation);
     };
   }, []);
+
+  const seekTime = async videoId => {
+    const t = await getVideoTime(videoId);
+    videoRef.current.player.ref.seek(t);
+  };
 
   useEffect(() => {
     const backAction = () => {
@@ -119,7 +135,17 @@ const CoursePlayerScreen = ({navigation, route}) => {
             alignItems: 'center',
           }}>
           {loading ? (
-            <ActivityIndicator size={30} color={COLORS.white} />
+            <ActivityIndicator color={COLORS.white} size={30} />
+          ) : youtube ? (
+            <YoutubeVideoPlayer
+              apiKey="AIzaSyDJYUHLLMwHFKv89YmuzBWFZC6lR_WWocE"
+              videoId={'KVZ-P-ZI6W4'}
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+              autoplay
+            />
           ) : (
             <VideoPlayer
               ref={videoRef}
@@ -136,6 +162,22 @@ const CoursePlayerScreen = ({navigation, route}) => {
               onEnterFullscreen={handleEnterFullscreen}
               onExitFullscreen={handleExitFullScreen}
               toggleResizeModeOnFullscreen={false}
+              onProgress={async ({currentTime}) => {
+                await onVideoProgress(currentTime, data.id);
+              }}
+              onLoad={() => {
+                seekTime(data.id);
+              }}
+              onEnd={() => {
+                if (course.lessons.length - 1 !== index) {
+                  setTimeout(() => {
+                    navigateToCoursePlayerScreen(
+                      course.lessons[index + 1],
+                      index + 1,
+                    );
+                  }, 5000);
+                }
+              }}
             />
           )}
         </View>
