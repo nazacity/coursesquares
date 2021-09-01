@@ -3,19 +3,15 @@ import {View, Text, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {COLORS, FONTS, SHADOW} from '../../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {fetchLectureInfo} from '../../redux/actions/CourseAction';
 
 const LessonScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const course = useSelector(state => state.course.course);
-  const navigateToCoursePlayerScreen = item => {
-    dispatch(
-      fetchLectureInfo({
-        courseId: course.id,
-        lectureId: item.lecId,
-      }),
-    );
-    navigation.navigate('CoursePlayer');
+  const navigateToCoursePlayerScreen = (item, index) => {
+    navigation.navigate('CoursePlayer', {
+      item,
+      index,
+    });
   };
 
   const lessonCard = ({item, index}) => {
@@ -23,14 +19,12 @@ const LessonScreen = ({navigation}) => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => {
-          // navigation.navigate('CoursePlayer');
-          console.log({item, index});
           navigateToCoursePlayerScreen(item, index);
         }}
         style={[SHADOW.default, Styles.touchableOpacity]}>
         <View style={Styles.viewTextTitle}>
           <Text style={[FONTS.h3, {color: COLORS.secondary}]}>
-            บทที่ {index + 1}: {item.title}
+            {item.title}
           </Text>
         </View>
         <View style={Styles.viewIonicons}>

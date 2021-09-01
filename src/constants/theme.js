@@ -16,6 +16,7 @@ export const COLORS = {
   expiredGray: '#BEBEBE',
   lightGray: '#EFF0F6',
   green: '#0C9300',
+  black: '#000',
 };
 
 export const Radius = {

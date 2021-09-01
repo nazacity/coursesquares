@@ -1,94 +1,94 @@
 [
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_launch_screen.xml.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\layout\\launch_screen.xml"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_launch_screen.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\drawable-xhdpi\\launch_screen.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_launch_screen.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\drawable-xhdpi\\launch_screen.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_launch_screen.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\drawable-xxhdpi\\launch_screen.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_launch_screen.xml.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\layout\\launch_screen.xml"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_launch_screen.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\drawable-xxhdpi\\launch_screen.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round1.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round1.png"
     },
     {
-        "merged": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher1.png.flat",
-        "source": "D:\\coursesquare\\csmobile-react-native-rewrite\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher1.png"
+        "merged": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "D:\\project\\coursesquare\\app\\Coursesquare\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     }
 ]

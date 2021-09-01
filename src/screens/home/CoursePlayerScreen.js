@@ -10,20 +10,65 @@ import Orientation from 'react-native-orientation-locker';
 import {setFullscreen} from '../../redux/actions/AppStateAction';
 // import Youtube from 'react-native-youtube';
 import useOrientation from '../../useHook/useOrientation';
+import {fetchLectureInfo} from '../../redux/actions/CourseAction';
+import {ActivityIndicator} from 'react-native';
 
-const CoursePlayerScreen = ({navigation}) => {
+const CoursePlayerScreen = ({navigation, route}) => {
+  const [loading, setLoading] = useState(true);
   const course = useSelector(state => state.course.course);
-  const lecture = useSelector(state => state.course.currentLecture);
+  const [data, setData] = useState({
+    cId: 0,
+    cName: '',
+    courseThumbnailUrl: null,
+    courseUrl: '',
+    id: 0,
+    lecFreeFlag: 0,
+    lecId: 0,
+    lecName: '',
+    lecType: 'VIDEO',
+    title: '',
+    vidId: 0,
+    vidThumbnailPath: '',
+    vidVideoHLSPath: null,
+    vidVideoPath: '',
+    videoHSLPath: null,
+    videoPath: '',
+    videoThumbnailPath: '',
+  });
   const fullscreen = useSelector(state => state.appState.fullscreen);
   const dispatch = useDispatch();
   const {height} = useOrientation();
   const videoRef = useRef();
+  const {item, index} = route.params;
+
+  const navigateToCoursePlayerScreen = (item, index) => {
+    navigation.replace('CoursePlayer', {
+      item,
+      index,
+    });
+  };
 
   function handleOrientation(orientation) {
     orientation === 'LANDSCAPE-LEFT' || orientation === 'LANDSCAPE-RIGHT'
       ? (dispatch(setFullscreen(true)), StatusBar.setHidden(true))
       : (dispatch(setFullscreen(false)), StatusBar.setHidden(false));
   }
+
+  const onFetchLecture = async () => {
+    setLoading(true);
+    try {
+      const res = await fetchLectureInfo(course.id, item.lecId);
+      console.log(res);
+      setData(res);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    onFetchLecture();
+  }, []);
 
   useEffect(() => {
     // This would be inside componentDidMount()
@@ -64,30 +109,38 @@ const CoursePlayerScreen = ({navigation}) => {
 
   return (
     <View style={{backgroundColor: COLORS.backgroundColor}}>
-      <View
-        style={{
-          width: '100%',
-          height: fullscreen ? height : 300,
-        }}>
-        <VideoPlayer
-          ref={videoRef}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
           style={{
             width: '100%',
-            height: '100%',
-            resizeMode: 'cover',
-          }}
-          source={{
-            uri: lecture.videoPath,
-          }}
-          controls={false}
-          disableBack={true}
-          onEnterFullscreen={handleEnterFullscreen}
-          onExitFullscreen={handleExitFullScreen}
-          toggleResizeModeOnFullscreen={false}
-        />
-      </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{padding: 20, backgroundColor: COLORS.white}}>
+            height: fullscreen ? height : 300,
+            backgroundColor: COLORS.black,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {loading ? (
+            <ActivityIndicator size={30} color={COLORS.white} />
+          ) : (
+            <VideoPlayer
+              ref={videoRef}
+              style={{
+                width: '100%',
+                height: '100%',
+                resizeMode: 'cover',
+              }}
+              source={{
+                uri: data.videoPath,
+              }}
+              controls={false}
+              disableBack={true}
+              onEnterFullscreen={handleEnterFullscreen}
+              onExitFullscreen={handleExitFullScreen}
+              toggleResizeModeOnFullscreen={false}
+            />
+          )}
+        </View>
+
+        <View style={{padding: 20, backgroundColor: COLORS.white, flex: 1}}>
           <View>
             <Text style={[FONTS.body4, {color: COLORS.thirdary}]}>
               คอร์ส {course?.title}
@@ -95,7 +148,7 @@ const CoursePlayerScreen = ({navigation}) => {
           </View>
           <View style={{marginVertical: 10}}>
             <Text style={[FONTS.h1, {color: COLORS.secondary}]}>
-              บทที่ 1: {course?.lessons[0]?.title}
+              {item?.title}
             </Text>
           </View>
         </View>
@@ -131,12 +184,16 @@ const CoursePlayerScreen = ({navigation}) => {
         <View style={{paddingHorizontal: 20}}>
           {course?.lessons?.map((item, index) => {
             return (
-              <React.Fragment key={item.title}>
+              <React.Fragment key={item.id}>
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={{
                     flexDirection: 'row',
                     paddingVertical: 20,
+                  }}
+                  onPress={() => {
+                    // navigation.navigate('CoursePlayer');
+                    navigateToCoursePlayerScreen(item, index);
                   }}>
                   <View style={{flex: 3}}>
                     <Text style={[FONTS.h3, {color: COLORS.secondary}]}>
@@ -204,20 +261,28 @@ const CoursePlayerScreen = ({navigation}) => {
               กลับไปบทเรียน
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={{
-              flex: 1,
-              margin: 10,
-              padding: 10,
-              backgroundColor: COLORS.secondary,
-              borderRadius: 5,
-            }}>
-            <Text
-              style={[FONTS.h3, {color: COLORS.white, textAlign: 'center'}]}>
-              ไปบทถัดไป
-            </Text>
-          </TouchableOpacity>
+          {course.lessons.length - 1 !== index && (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={{
+                flex: 1,
+                margin: 10,
+                padding: 10,
+                backgroundColor: COLORS.secondary,
+                borderRadius: 5,
+              }}
+              onPress={() =>
+                navigateToCoursePlayerScreen(
+                  course.lessons[index + 1],
+                  index + 1,
+                )
+              }>
+              <Text
+                style={[FONTS.h3, {color: COLORS.white, textAlign: 'center'}]}>
+                ไปบทถัดไป
+              </Text>
+            </TouchableOpacity>
+          )}
         </View>
       </ScrollView>
     </View>
